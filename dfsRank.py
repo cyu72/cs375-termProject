@@ -38,8 +38,6 @@ def construct_adjacency_matrix(file_path):
 
 file_path = "random_pairs.txt"
 graph = construct_adjacency_matrix(file_path)
-# for _ in range(100):
-#     dfs_scores += dfs(graph, '25') #fix a node to start at
 total_visit_count = {node: 0 for node in graph}
 for _ in range(10000):
     start_node = random.choice(list(graph.keys()))

@@ -2,26 +2,10 @@ import numpy as np
 import time as time
 
 def pagerank(graph, damping_factor=0.85, max_iterations=100, tolerance=1e-6):
-    """
-    Calculate PageRank for a given graph.
-
-    Parameters:
-    - graph: Dictionary representing the graph, where keys are nodes and values are lists of nodes
-      representing outgoing edges.
-    - damping_factor: Damping factor (usually set to 0.85).
-    - max_iterations: Maximum number of iterations for the power iteration method.
-    - tolerance: Convergence tolerance.
-
-    Returns:
-    - Dictionary where keys are nodes and values are their corresponding PageRank scores.
-    """
-
     num_nodes = len(graph)
     initial_pagerank = 1.0 / num_nodes
     pagerank_vector = np.full(num_nodes, initial_pagerank)
     adjacency_matrix = np.zeros((num_nodes, num_nodes))
-
-    # Build the adjacency matrix
     for i, node in enumerate(graph):
         for neighbor in graph[node]:
             adjacency_matrix[i, list(graph.keys()).index(neighbor)] = 1
